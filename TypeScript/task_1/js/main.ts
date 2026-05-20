@@ -4,7 +4,7 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any;
+  [propName: string]: any;
 }
 
 interface Directors extends Teacher {
@@ -31,7 +31,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+const printTeacher: printTeacherFunction = (
+  firstName: string,
+  lastName: string
+): string => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
 
@@ -64,8 +67,9 @@ class StudentClass implements StudentClassInterface {
 
 console.log(teacher3);
 console.log(director1);
-console.log(printTeacher("John", "Doe"));
+console.log(printTeacher('John', 'Doe'));
 
-const student = new StudentClass("Lenae", "H");
+const student = new StudentClass('Lenae', 'H');
+
 console.log(student.displayName());
 console.log(student.workOnHomework());
